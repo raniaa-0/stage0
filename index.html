@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>CHU - Gestion des incidents</title>
+  <link rel="stylesheet" href="index.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <h1>Plateforme des demandes techniques - CHU</h1>
+  </header>
+    <section id="welcomeSection">
+  <h2 id="welcomeMessage"></h2>
+  <p id="roleMessage"></p>
+</section>
+
+
+  <main>
+    <!-- Formulaire de création de ticket -->
+    <section class="form-section">
+      <h2>Créer une nouvelle demande</h2>
+      <form id="ticketForm">
+        <label>Service :
+          <input type="text" id="service" required>
+        </label>
+        <label>Description :
+          <textarea id="description" required></textarea>
+        </label>
+        <label>Priorité :
+          <select id="priorite">
+            <option value="Basse">Basse</option>
+            <option value="Normale">Normale</option>
+            <option value="Haute">Haute</option>
+          </select>
+        </label>
+        <button type="submit">Soumettre</button>
+      </form>
+    </section>
+
+    <!-- Liste des tickets -->
+    <section class="tickets-section">
+      <h2>Demandes en cours</h2>
+      <ul id="ticketList"></ul>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

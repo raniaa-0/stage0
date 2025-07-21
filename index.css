@@ -1,0 +1,355 @@
+/* ===== Enhanced Hospital Theme ===== */
+:root {
+  --primary: #0e3b66;       /* Deep trust blue */
+  --secondary: #4b79a1;     /* Soft interactive blue */
+  --accent: #5cb85c;       /* Health green (confirm/resolved) */
+  --danger: #d9534f;       /* Urgent red */
+  --light-bg: #f8fbfe;     /* Lighter background */
+  --card-bg: #ffffff;      /* Pure white for cards */
+  --text-dark: #2a4365;    /* Darker text for better contrast */
+  --text-light: #718096;
+  --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --radius: 12px;          /* Modern rounded corners */
+}
+
+/* ===== Base Styles ===== */
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: var(--light-bg);
+  color: var(--text-dark);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== Header ===== */
+header {
+  background: linear-gradient(135deg, var(--primary), #1a5f8c);
+  color: white;
+  padding: 1.5rem 0;
+  text-align: center;
+  box-shadow: var(--shadow-md);
+  position: relative;
+  z-index: 10;
+}
+
+header h1 {
+  font-size: 1.8rem;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+/* ===== Welcome Section ===== */
+#welcomeSection {
+  background-color: var(--card-bg);
+  padding: 1.5rem;
+  margin: 1rem auto;
+  max-width: 1200px;
+  width: 95%;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  text-align: center;
+}
+
+#welcomeMessage {
+  font-size: 1.4rem;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+#roleMessage {
+  color: var(--secondary);
+  font-style: italic;
+  font-weight: 500;
+}
+
+/* ===== Form Sections ===== */
+.form-section {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 2rem;
+  margin: 1.5rem auto;
+  max-width: 800px;
+  width: 95%;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-section:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.form-section h2 {
+  color: var(--primary);
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-size: 1.5rem;
+  border-bottom: 2px solid var(--secondary);
+  padding-bottom: 0.5rem;
+  display: inline-block;
+}
+
+/* ===== Forms ===== */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-family: 'Open Sans', sans-serif;
+  transition: all 0.3s ease;
+  background-color: #f7fafc;
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: var(--secondary);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(78, 121, 161, 0.2);
+  background-color: white;
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* ===== Buttons ===== */
+button {
+  background-color: var(--secondary);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.9rem;
+}
+
+button:hover {
+  background-color: var(--primary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+button.changer-statut {
+  background-color: var(--accent);
+}
+
+button.supprimer-ticket {
+  background-color: var(--danger);
+}
+
+/* ===== Tickets Section ===== */
+.tickets-section {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 2rem;
+  margin: 1.5rem auto;
+  max-width: 1000px;
+  width: 95%;
+  box-shadow: var(--shadow-sm);
+}
+
+.tickets-section h2 {
+  color: var(--primary);
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+#ticketList {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 1.25rem;
+}
+
+/* ===== Ticket Cards ===== */
+.ticket {
+  background: white;
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+  border-left: 4px solid var(--primary);
+  position: relative;
+}
+
+.ticket:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.ticket strong {
+  color: var(--primary);
+}
+
+.ticket .statut {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.statut[data-statut="En attente"] {
+  background-color: #f0ad4e;
+  color: white;
+}
+
+.statut[data-statut="En cours"] {
+  background-color: #5bc0de;
+  color: white;
+}
+
+.statut[data-statut="Résolu"] {
+  background-color: var(--accent);
+  color: white;
+}
+
+.ticket em {
+  color: var(--text-light);
+  font-size: 0.9rem;
+  display: block;
+  margin: 0.5rem 0;
+}
+
+.ticket-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+/* ===== Admin Stats ===== */
+#stats {
+  font-weight: 600;
+  color: var(--primary);
+}
+
+#filtre {
+  margin-left: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+}
+
+/* ===== Footer ===== */
+footer {
+  background: linear-gradient(135deg, var(--primary), #1a5f8c);
+  color: white;
+  text-align: center;
+  padding: 1.5rem;
+  margin-top: auto;
+  font-size: 0.9rem;
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 768px) {
+  .form-section, .tickets-section {
+    padding: 1.25rem;
+  }
+  
+  .ticket-actions {
+    flex-direction: column;
+  }
+  
+  button {
+    width: 100%;
+  }
+}
+
+
+/* ===== LOGIN PAGE ENHANCEMENTS ===== */
+/* Add this at the END of your existing CSS */
+
+/* Login Page Container */
+body.login-page {
+  background: linear-gradient(rgba(240, 248, 255, 0.9), rgba(240, 248, 255, 0.9)), 
+              url('hospital-icon.png') center/200px no-repeat;
+  background-position: center 30%;
+}
+
+/* Header Adjustments */
+.login-page header {
+  background: transparent;
+  color: var(--primary);
+  box-shadow: none;
+  padding-top: 3rem;
+}
+
+/* Form Card */
+.login-page .form-section {
+  max-width: 400px;
+  margin: 4rem auto 2rem;
+  border-top: 4px solid var(--accent);
+  position: relative;
+}
+
+.login-page .form-section::after {
+  content: "⚕"; /* Medical symbol */
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+/* Form Elements */
+.login-page input, 
+.login-page select {
+  border: 2px solid #e2e8f0;
+  padding: 12px 15px;
+  transition: all 0.3s;
+}
+
+.login-page input:focus, 
+.login-page select:focus {
+  border-color: var(--secondary);
+  box-shadow: 0 0 0 3px rgba(78, 121, 161, 0.1);
+}
+
+.login-page button[type="submit"] {
+  background: linear-gradient(to right, var(--primary), var(--secondary));
+  letter-spacing: 1px;
+  margin-top: 1.5rem;
+  padding: 12px;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .login-page .form-section {
+    margin-top: 3rem;
+    width: 90%;
+  }
+}

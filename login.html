@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Connexion CHU</title>
+  <link rel="stylesheet" href="index.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <body class="login-page"></body>
+  <header>
+    <h1>Connexion - Plateforme CHU</h1>
+  </header>
+
+  <main>
+    <section class="form-section">
+      <h2>Choisir votre rôle</h2>
+      <form id="loginForm">
+        <label>Nom :
+          <input type="text" id="username" required>
+        </label>
+
+        <label>Rôle :
+          <select id="role" required>
+            <option value="user">Utilisateur</option>
+            <option value="technicien">Technicien</option>
+            <option value="admin">Admin</option>
+          </select>
+        </label>
+
+        <button type="submit">Entrer</button>
+      </form>
+    </section>
+  </main>
+
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const username = document.getElementById("username").value;
+      const role = document.getElementById("role").value;
+
+      // Sauvegarder dans localStorage
+      localStorage.setItem("username", username);
+      localStorage.setItem("role", role);
+
+      // Rediriger vers le tableau de bord
+      window.location.href = "index.html";
+    });
+  </script>
+</body>
+</html>
